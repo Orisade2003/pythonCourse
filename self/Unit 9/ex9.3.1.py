@@ -11,10 +11,10 @@ def mins_to_sec(song_len):
 
 def my_mp3_playlist(file_path):
     """
-    :param file_path:a file containing different songs, their names, artist and length
+    :param file_path:a file containing different songs.txt, their names, artist and length
     :type file_path: string
     :return: The function returns a tuple in which the first item is the longest song in the file, the second
-            item in then amount of songs and the third item is the artist which appears the most times
+            item in then amount of songs.txt and the third item is the artist which appears the most times
              in the file
     :rtype: tuple
     """
@@ -26,12 +26,11 @@ def my_mp3_playlist(file_path):
     for i in first_format:
         temp_list = i.split(";")
         songs_dict[temp_list[0]] = mins_to_sec(temp_list[2])
-    print(songs_dict)
     max_len = 0
     max_len_song = ""
     for i in first_format:
         temp_list = i.split(";")
-        if (mins_to_sec(temp_list[2]) > max_len):
+        if mins_to_sec(temp_list[2]) > max_len:
             max_len = mins_to_sec(temp_list[2])
             max_len_song = temp_list[0]
     returned_tup = returned_tup + (max_len_song,)
@@ -43,7 +42,7 @@ def my_mp3_playlist(file_path):
     max_times = 0
     max_artist = artist_list[0]
     for artist in artist_list:
-        if (artist_list.count(artist) > max_times):
+        if artist_list.count(artist) > max_times:
             max_artist = artist
             max_times = artist_list.count(artist)
     returned_tup = returned_tup + (max_artist,)
@@ -51,7 +50,7 @@ def my_mp3_playlist(file_path):
 
 
 def main():
-    print(my_mp3_playlist(r"file1"))
+    print(my_mp3_playlist(r"Files/songs.txt"))
 
 
 if __name__ == '__main__':

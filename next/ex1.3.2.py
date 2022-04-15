@@ -1,7 +1,7 @@
 def is_prime(num):
     """
     :param num: number entered by user
-    :type: int
+    :type num: int
     :return: True if num is prime and False otherwise
     :rtype: boolean
     """

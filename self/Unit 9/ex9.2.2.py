@@ -15,8 +15,8 @@ def copy_file_content(source, destination):
 
 
 def main():
-    src = r"/file1"
-    dest = r"C:\Users\ORI\PycharmProjects\sigitCourse\file2"
+    src = r"Files\copy.txt"
+    dest = r"Files\paste.txt"
     copy_file_content(src, dest)
 
 

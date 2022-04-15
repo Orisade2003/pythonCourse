@@ -13,16 +13,16 @@ def who_is_missing(file_name):
         i = int(i)
     max_num = int(max(file_numbers))
     for i in range(1, max_num+1):
-        if i not in file_numbers:
-            found_file = open("found.txt", "w")
+        if str(i) not in file_numbers:
+            found_file = open("Files/found.txt", "w")
             found_file.write(str(i))
-            Found = True
+            found = True
     if not found:
-        found_file = open("found.txt", "w")
+        found_file = open("Files/found.txt", "w")
         found_file.write(str(max_num+1))
 
 def main():
-    who_is_missing(r"/file1")
+    who_is_missing(r"Files/findMe.txt")
 
 if __name__ == '__main__':
     main()

@@ -1,9 +1,9 @@
 def my_mp4_playlist(file_path, new_song):
     """
-    :param file_path:path to songs file
+    :param file_path:path to songs.txt file
     :type file_path: string
     :param new_song: new song to add the third line
-    if there are more than 3 lines in the songs file, the name of song at the third line is changed to
+    if there are more than 3 lines in the songs.txt file, the name of song at the third line is changed to
     new_song, if there are less than 3 lines, then empty lines are added unti there are 3 lines
     and the name of the new song is added there
     :type new_song: string
@@ -35,7 +35,7 @@ def my_mp4_playlist(file_path, new_song):
     opened_file.close()
 
 def main():
-    my_mp4_playlist(r"file1", "python song")
+    my_mp4_playlist("Files/songs.txt", "python song")
 
 if __name__ == '__main__':
     main()

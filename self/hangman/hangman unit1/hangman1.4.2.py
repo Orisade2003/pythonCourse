@@ -1,4 +1,7 @@
 def printStates():
+    """
+    prints the different states of the game
+    """
     print(r"""picture 1:
     x-------x
 

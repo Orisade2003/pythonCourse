@@ -16,8 +16,8 @@ def are_files_equal(file1, file2):
     return file1_content == file2_content
 
 def main():
-    file1 = r"C:\Users\ORI\PycharmProjects\sigitCourse\file1"
-    file2 = r"C:\Users\ORI\PycharmProjects\sigitCourse\file2"
+    file1 = r"Files\file1.txt"
+    file2 = r"Files\file2.txt"
     print(are_files_equal(file1,file2))
 
 if __name__ == '__main__':

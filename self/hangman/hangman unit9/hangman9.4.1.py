@@ -18,3 +18,7 @@ def choose_word(file_path, index):
             unique_words.append(word)
     tup = (len(unique_words),all_words[(index%len(all_words))-1])
     return tup[1]
+
+
+def main():
+    choose_word(r"C:\Users\ORI\PycharmProjects\sigitCourse\self\hangman\hangman_words",4 )

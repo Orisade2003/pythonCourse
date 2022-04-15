@@ -1,3 +1,5 @@
+import os
+
 HANGMAN_ASCII_ART = """ 
       Welcome To The Game Hangman
       _    _                                         
@@ -39,7 +41,7 @@ STATE5 = """
     x-------x
     |       |
     |       0
-    |      /|\
+    |      /|\\
     |
     |
 """
@@ -243,6 +245,15 @@ def print_hangman(num_of_tries):
     tries_dict = {1: STATE1, 2: STATE2, 3: STATE3, 4: STATE4, 5: STATE5, 6: STATE6, 7: STATE7}
     print(tries_dict[num_of_tries])
 
+def get_file_path():
+    """
+    the function gets a file path from the user
+    :return: the path to the file
+    :rtype: str
+    """
+    file_path = input("Please Enter a file path")
+    return file_path
+
 
 def choose_word(file_path, index):
     """
@@ -268,12 +279,7 @@ def choose_word(file_path, index):
     # the amount of words in the file
     return tup[1]
 
-
-def main():
-    file_input = input("Enter File Path to words file")
-    word_index = int(input("Enter a word index"))
-    secret_word = choose_word(file_input, word_index)
-    print(file_input)
+def hangman(secret_word):
     old_letters_guessed = []
     turn_counter = 0
     win = False
@@ -298,6 +304,19 @@ def main():
     else:
         print("You Lost :(")
 
+
+def main():
+    printHangman()
+    legal_path = False
+    file_input = get_file_path()
+    legal_path = os.path.exists(file_input)  # checking if file path is legal
+    while not legal_path:  # checking if file path is legal
+        file_input = input("Please Enter a valid path")
+        legal_path = os.path.exists(file_input)
+    word_index = int(input("Enter a word index"))
+
+    secret_word = choose_word(file_input, word_index)
+    hangman(secret_word)
 
 if __name__ == '__main__':
     main()
