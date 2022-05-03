@@ -31,6 +31,7 @@ def connect_lines(first, second):
         draw = ImageDraw.Draw(img)
         draw.line((x, y, x2, y2), fill=128, width=3)
     img.show()
+    img.save('images/result.png')
 
 
 def main():
