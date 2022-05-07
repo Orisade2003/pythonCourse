@@ -15,7 +15,7 @@ def connect_lines(first, second):
     draw lines and connect all the points in first and in second
     """
     img = Image.open(r'images/ex6p4.jpg')
-    for pt in range(0,len(first) - 2,2):
+    for pt in range(0, len(first) - 2, 2):
         x = first[pt]
         y = first[pt + 1]
         x2 = first[pt + 2]
@@ -23,7 +23,7 @@ def connect_lines(first, second):
         draw = ImageDraw.Draw(img)
         draw.line((x, y, x2, y2), fill=128, width=3)
 
-    for pt in range(0,len(second) - 2,2):
+    for pt in range(0, len(second) - 2, 2):
         x = second[pt]
         y = second[pt + 1]
         x2 = second[pt + 2]
@@ -35,6 +35,7 @@ def connect_lines(first, second):
 
 
 def main():
+    # list of dots, in the following format: [x, y, x, y, x, y,...]
     first = (
         146, 399, 163, 403, 170, 393, 169, 391, 166, 386, 170, 381, 170, 371, 170,
         355, 169, 346, 167, 335, 170, 329, 170, 320, 170, 310, 171, 301, 173, 290,
