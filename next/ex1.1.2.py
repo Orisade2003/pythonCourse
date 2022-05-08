@@ -5,7 +5,9 @@ def mult_letter(char):
     :return: char concatenated twice
     :rtype: string
     """
-    return char*2
+    return char * 2
+
+
 def double_letter(my_str):
     """
     :param my_str: a string given by the user
@@ -15,8 +17,10 @@ def double_letter(my_str):
     """
     return ''.join(list(map(mult_letter, my_str)))
 
+
 def main():
     print(str(double_letter("we are the champions!")))
+
 
 if __name__ == '__main__':
     main()

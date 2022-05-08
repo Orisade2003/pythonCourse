@@ -47,6 +47,9 @@ class Dog(Animal):
         super().__init__(name, hunger)
 
     def talk(self):
+        """
+        The function prints what the dog says which is 'woof woof'
+        """
         print("woof woof")
 
     def fetch_stick(self):
@@ -77,7 +80,7 @@ class Cat(Animal):
 
 
 class Skunk(Animal):
-    def __init__(self, name, hunger):
+    def __init__(self, name, hunger, stink_count=6):
         """
             :param name:name of the skunk
             :type name: string
@@ -86,7 +89,7 @@ class Skunk(Animal):
             the function sets the stink_count attribute of the skunk to 6
                """
         super().__init__(name, hunger)
-        self._stink_count = 6
+        self._stink_count = stink_count
 
     def talk(self):
         print("tsssss")
@@ -96,6 +99,7 @@ class Skunk(Animal):
         the function prints 'Dear lord!'
         """
         print("Dear lord!")
+
 
 class Unicorn(Animal):
     def __init__(self, name, hunger):
@@ -118,7 +122,7 @@ class Unicorn(Animal):
 
 
 class Dragon(Animal):
-    def __init__(self, name, hunger):
+    def __init__(self, name, hunger, color='Green'):
         """
            :param name:name of the dragon
            :type name: string
@@ -127,7 +131,7 @@ class Dragon(Animal):
            the function sets the color attribute of the dragon to 'Green'
         """
         super().__init__(name, hunger)
-        self._color = "Green"
+        self._color = color
 
     def talk(self):
         print("Raaaawr")
@@ -145,28 +149,30 @@ def main():
     skunk = Skunk("Stinky", 0)
     uni = Unicorn("Keith", 7)
     drag = Dragon("Lizzy", 1450)
-    doggo = Dog("Doggo",80)
+    doggo = Dog("Doggo", 80)
     kitty = Cat("kitty", 80)
-    stinkyjr = Skunk("Stinky Jr.",80)
+    stinkyjr = Skunk("Stinky Jr.", 80)
     clair = Unicorn("Clair", 80)
-    mcfly = Dragon("McFly",80)
+    mcfly = Dragon("McFly", 80)
     zoo_lst = [dog, cat, skunk, uni, drag, doggo, kitty, stinkyjr, clair, mcfly]
     for animal in zoo_lst:
         if animal.is_hungry():
             print(animal.__class__.__name__, animal.get_name())
-            animal.talk()
-            if isinstance(animal, Dog):
-                animal.fetch_stick()
-            if isinstance(animal, Cat):
-                animal.chase_laser()
-            if isinstance(animal, Skunk):
-                animal.stink()
-            if isinstance(animal, Unicorn):
-                animal.sing()
-            if isinstance(animal, Dragon):
-                animal.breath_fire()
-        while animal.is_hungry():
-            animal.feed()
+            while animal.is_hungry():
+                animal.feed()
+        animal.talk()
+        if isinstance(animal, Dog):
+            animal.fetch_stick()
+        if isinstance(animal, Cat):
+            animal.chase_laser()
+        if isinstance(animal, Skunk):
+            animal.stink()
+        if isinstance(animal, Unicorn):
+            animal.sing()
+        if isinstance(animal, Dragon):
+            animal.breath_fire()
+
+
     print(mcfly._zoo_name)
 
 
