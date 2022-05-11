@@ -1,6 +1,6 @@
 def iter_error():
     """
-    this function provides an example of an iteration error
+        this function provides an example of an iteration error
     """
     lst = [1, 2, 3]
     iterat = iter(lst)
@@ -17,8 +17,8 @@ def zero_div():
 
 def assertion_error():
     """
-           this function provides an example of an Assertion Error
-       """
+       this function provides an example of an Assertion Error
+    """
     y = 0
     assert y != 0
     print(y)

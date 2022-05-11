@@ -1,6 +1,7 @@
 def gen_secs():
     """
-    :return:a generator of all numbers between 0 and 60 (non inclusive)
+    The function returns a generator of all numbers between 0 and 60 (non-inclusive)
+    :return:a generator of all numbers between 0 and 60 (non-inclusive)
     :rtype: generator
     """
     sec_gen = (i for i in range(60))
@@ -9,6 +10,7 @@ def gen_secs():
 
 def gen_minutes():
     """
+    The function returns a generator of all numbers between 0 and 60 (non-inclusive)
         :return:a generator of all numbers between 0 and 60 (non-inclusive)
         :rtype: generator
         """
@@ -18,7 +20,8 @@ def gen_minutes():
 
 def gen_hours():
     """
-        :return:a generator of all numbers between 0 and 24 (non inclusive)
+    The function returns a generator of all numbers between 0 and 24 (non-inclusive)
+        :return:a generator of all numbers between 0 and 24 (non-inclusive)
         :rtype: generator
         """
     hour_gen = (i for i in range(0, 24))
@@ -27,6 +30,8 @@ def gen_hours():
 
 def gen_time():
     """
+    A generator function which yields all the different possible combinations
+    of hour, minute and second in a day
     :return:a generator function which yields all the different possible combinations
     of hour, minute and second in a day
     :rtype: str
@@ -46,6 +51,7 @@ def gen_time():
 
 def gen_year(start=2022):
     """
+    A generator function which yields all years starting from the current one
     :param start: the starting year
     :type start: int
     :return: a generator function which yields all years from the current one until infinity
@@ -58,7 +64,8 @@ def gen_year(start=2022):
 
 def gen_months():
     """
-    :return: a egenrator of all the possible months numbers (1-13, not inclusive)
+    The function returns a generator of all the possible months numbers (1-13, not inclusive)
+    :return: a generator of all the possible months numbers (1-13, not inclusive)
     :rtype: int
     """
     months_gen = (month for month in range(1, 13))
@@ -67,12 +74,13 @@ def gen_months():
 
 def gen_days(month, leap_year=True):
     """
+    The function returns a generator containing the days in the given month, takes into account if the year is a leap year or not
     :param month: the month given to the function
     :type month: int
     :param leap_year: if the year is a leap year or not
     :type leap_year: bool
     :return: a generator containing the days in the given month, takes into account if the year is a leap year or not
-    :rtype genrator
+    :rtype generator
     """
     if month <= 7:
         if month % 2 == 1:
@@ -91,12 +99,13 @@ def gen_days(month, leap_year=True):
 
 def gen_date():
     """
+    A generator function which returns all the different possible times in
+        dd/mm/yy hh:mm:ss format from the start of the given year until infinity
     :return: the function is a generator function which returns all the different possible times in
-    dd/mm/yy hh:mm:ss format from the start of the given year until infinity
+        dd/mm/yy hh:mm:ss format from the start of the given year until infinity
     :rtype: str
     """
     year_gen = gen_year()
-    is_leap_year = False
     while True:
         is_leap_year = False
         year = next(year_gen)

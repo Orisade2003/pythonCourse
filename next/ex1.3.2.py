@@ -1,5 +1,6 @@
 def is_prime(num):
     """
+    The function checks if a number is prime
     :param num: number entered by user
     :type num: int
     :return: True if num is prime and False otherwise

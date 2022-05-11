@@ -1,5 +1,6 @@
 def is_divisible_by_four(num):
     """
+    The function returns whether a number is divisible by 4
     :param num:number given by the user
     :type num:int
     :return: true if the number is divisible by four and false otherwise
@@ -9,6 +10,7 @@ def is_divisible_by_four(num):
 
 def four_dividers(num):
     """
+    The function retrund a list of all numbers from 1 to num which are divisble by 4
     :param num:number given by the user
     :return: a list of all numbers in range 1 to number+1 which are divisible by 4
     """

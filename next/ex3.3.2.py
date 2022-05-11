@@ -1,6 +1,7 @@
 class UnderAgeException(Exception):
     def __init__(self, arg):
         """
+        The function initializes an UnderAgeException
         :param arg: the age of the user
         :type arg: int
         """
@@ -17,6 +18,7 @@ class UnderAgeException(Exception):
 
     def get_arg(self):
         """
+        The function returns the age of the user
         :return: the age of the user for whom the exception was thrown
         :rtype: int
         """
@@ -25,13 +27,13 @@ class UnderAgeException(Exception):
 
 def send_invitation(name, age):
     """
+    the function tells Ido he should invite the person if their age is 18 or above,
+    the function throws and exception to show to any user who isn't yet 18, and tells them
+    their age and in how many years they will be able to go to Ido's birthday party
     :param name: the name of the person who Ido might invite
     :type name: str
     :param age: the age of the person Ido might invite
     :type age: int
-    the function tells Ido he should invite the person if their age is 18 or above,
-    the function throws and exception to show to any user who isn't yet 18, and tells them
-    their age and in how many years they will be able to go to Ido's birthday party
     """
     try:
         if int(age) < 18:

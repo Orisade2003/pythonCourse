@@ -2,8 +2,10 @@ import string
 
 
 class UsernameContainsIllegalCharacter(Exception):
+    """Class used to represent an exception for when the username contains an illegal character"""
     def __init__(self, arg):
         """
+        The function inits an instance of the UsernameContainsIllegalCharacter exception
         :param arg: the username of the user
         :type arg: str
         """
@@ -13,17 +15,18 @@ class UsernameContainsIllegalCharacter(Exception):
         """
         The Function tells the User that there is an illegal character in their username
         """
-        illegal_charcter = ''
+        illegal_character = ''
         counter = 0
         for ch in self._arg:
-            if not ch.isalnum() or  ch != '_':
+            if not ch.isalnum() or ch != '_':
                 illegal_character = ch
             counter += 1
         params = (illegal_character, counter - 1)
-        return 'Your Username contains an illegal character "%s" at %s ' %params
+        return 'Your Username contains an illegal character "%s" at %s ' % params
 
     def get_arg(self):
         """
+        The function returns the username
         :return: The username
         :rtype: str
         """
@@ -31,8 +34,11 @@ class UsernameContainsIllegalCharacter(Exception):
 
 
 class UsernameTooShort(Exception):
+    """Class used to represent an exception for when the username is too short"""
+
     def __init__(self, arg):
         """
+        The function inits an instance of the UsernameTooShort exception
         :param arg: the username of the user
         :type arg: str
         """
@@ -46,6 +52,7 @@ class UsernameTooShort(Exception):
 
     def get_arg(self):
         """
+        The function returns the username
         :return: The username
         :rtype: str
         """
@@ -53,8 +60,11 @@ class UsernameTooShort(Exception):
 
 
 class UsernameTooLong(Exception):
+    """Class used to represent an exception for when the username is too long"""
+
     def __init__(self, arg):
         """
+        The function inits an instance of the UsernameTooLong exception
         :param arg: the username of the user
         :type arg: str
         """
@@ -69,6 +79,7 @@ class UsernameTooLong(Exception):
 
     def get_arg(self):
         """
+        The function retruns the username
         :return: The username
         :rtype: str
         """
@@ -76,8 +87,11 @@ class UsernameTooLong(Exception):
 
 
 class PasswordMissingCharacter(Exception):
+    """Class used to represent an exception for when the passwords is missing a mandatory character"""
+
     def __init__(self, arg):
         """
+        The function inits an instance of the PasswordMissingCharacter exception
         :param arg: the password of the user
         :type arg: str
         """
@@ -110,10 +124,11 @@ class PasswordMissingCharacter(Exception):
             missing_char = "Digit"
         elif special_chars_counter == 0:
             missing_char = "Special"
-        return "Your Password is missing one of the required characters (%s)" %missing_char
+        return "Your Password is missing one of the required characters (%s)" % missing_char
 
     def get_arg(self):
         """
+        The function returns the password
         :return: The password
         :rtype: str
         """
@@ -121,8 +136,11 @@ class PasswordMissingCharacter(Exception):
 
 
 class PasswordTooShort(Exception):
+    """Class used to represent an exception for when the password is too short"""
+
     def __init__(self, arg):
         """
+        The function inits an instance of the PasswordTooShort exception
         :param arg: the password of the user
         :type arg: str
         """
@@ -138,6 +156,7 @@ class PasswordTooShort(Exception):
 
     def get_arg(self):
         """
+        The function returns the passwords
         :return: The password
         :rtype: str
         """
@@ -145,8 +164,11 @@ class PasswordTooShort(Exception):
 
 
 class PasswordTooLong(Exception):
+    """Class used to represent an exception for when the password is too long"""
+
     def __init__(self, arg):
         """
+        The function inits an instance of the PasswordTooLong exception
         :param arg: the password of the user
         :type arg: str
         """
@@ -162,6 +184,7 @@ class PasswordTooLong(Exception):
 
     def get_arg(self):
         """
+        The function returns the password
         :return: The password
         :rtype: str
         """
@@ -170,13 +193,14 @@ class PasswordTooLong(Exception):
 
 def check_input2(username, password):
     """
+    The function prints 'OK' if the password and username are legal
     :param username: Username given by the user
     :type username: str
     :param password: Password given by the user
     :type password: str
     :return: True if the username is between 3 and 16 characters(inclusive) and includes only alphabetical letters
-    , numbers and underscores, and the password is between 8 and 40 characters long(inclusive) and contains a lowercase letter,
-    an uppercase letter, a number and a punctuation mark. THe function returns False otherwise
+    , numbers and underscores, and the password is between 8 and 40 characters long(inclusive) and contains a lowercase
+     letter,an uppercase letter, a number and a punctuation mark. THe function returns False otherwise
     """
     is_username_legal = False
     is_password_legal = False
@@ -204,7 +228,6 @@ def check_input2(username, password):
         print("OK")
 
 
-
 def check_input(username, password):
     """
     :param username: Username given by the user
@@ -212,8 +235,15 @@ def check_input(username, password):
     :param password: Password given by the user
     :type password: str
     :return: True if the username is between 3 and 16 characters(inclusive) and includes only alphabetical letters
-    , numbers and underscores, and the password is between 8 and 40 characters long(inclusive) and contains a lowercase letter,
-    an uppercase letter, a number and a punctuation mark. THe function returns False otherwise
+    , numbers and underscores, and the password is between 8 and 40 characters long(inclusive) and contains a lowercase
+     letter, an uppercase letter, a number and a punctuation mark. THe function returns False otherwise
+     :raises: UsernameContainsIllegalCharacter if the username contains an illegal character
+     :raises: UsernameTooLong if the username is longer than 16 characters
+     :raises UsernameTooShort if the username is shorter than 3 characters
+     :raises PasswordTooLong if the passwords is longer than 40 characters
+     :raises PasswordTooShort if the passwords is shorter than 8 characters
+     :raises PasswordMissingCharacter if the passwords doesn't contain one of the following: a number, an uppercase letter, a lowercase letter or a special character
+
     """
     username_check = username.replace("_", "")
     if not username_check.isalnum():
@@ -244,17 +274,16 @@ def check_input(username, password):
     print("OK")
 
 
-
 def main():
-    #check_input("1", "2")
-   # check_input("0123456789ABCDEFG", "2")
-   # check_input("A_a1.", "12345678")
-   # check_input("A_1", "2")
-   # check_input("A_1", "ThisIsAQuiteLongPasswordAndHonestlyUnnecessary")
-    #check_input("A_1", "abcdefghijklmnop")
-    #check_input("A_1", "ABCDEFGHIJLKMNOP")
-    #check_input("A_1", "ABCDEFGhijklmnop")
-    #check_input("A_1", "4BCD3F6h1jk1mn0p")
+    # check_input("1", "2")
+    # check_input("0123456789ABCDEFG", "2")
+    # check_input("A_a1.", "12345678")
+    # check_input("A_1", "2")
+    # check_input("A_1", "ThisIsAQuiteLongPasswordAndHonestlyUnnecessary")
+    # check_input("A_1", "abcdefghijklmnop")
+    # check_input("A_1", "ABCDEFGHIJLKMNOP")
+    # check_input("A_1", "ABCDEFGhijklmnop")
+    # check_input("A_1", "4BCD3F6h1jk1mn0p")
     check_input("A_1", "4BCD3F6.1jk1mn0p")
 
 

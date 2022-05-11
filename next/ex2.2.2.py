@@ -1,4 +1,5 @@
 class Turtle:
+    """A class used to represent a turtle"""
     def __init__(self):
         """
         the function sets the default values to the turtle's attributes
@@ -14,6 +15,7 @@ class Turtle:
 
     def get_age(self):
         """
+        the function returns the age of the turtle
         :return: the age of this instance of the turtle
         :rtype int
         """

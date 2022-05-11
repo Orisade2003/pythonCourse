@@ -3,6 +3,7 @@ import functools
 
 def char_to_num(char, char2):
     """
+    The function adds 2 numbers
     The function adds the sum of the last digits and the most recent one
     :param char: character given by the user, must be a digit
     :type char: str
@@ -16,6 +17,7 @@ def char_to_num(char, char2):
 
 def sum_of_digits(number):
     """
+    The function calculates the sum of digits of a given number
     :param number: number given by the user
     :type number: int
     :return: the sum of the digits of the number

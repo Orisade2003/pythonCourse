@@ -1,4 +1,5 @@
 class Turtle:
+    """A class used to represent a turtle"""
     count_animals = 0
 
     def __init__(self, name='Octavio'):
@@ -17,6 +18,7 @@ class Turtle:
 
     def get_age(self):
         """
+        The function returns the age of the turtle
         :return: the age of this instance of the turtle
         :rtype int
         """
@@ -24,6 +26,7 @@ class Turtle:
 
     def set_name(self, name):
         """
+        The function sets the name of the turtle
         :param name: name given by the user
         :type name: string
         the function changes the name of this instance to name
@@ -32,6 +35,7 @@ class Turtle:
 
     def get_name(self):
         """
+        The function returns the name of the turtle
         :return: the function returns the name of this instance of the class
         :rtype: string
         """

@@ -4,6 +4,7 @@ import codecs
 
 def decode_msg(encoded_msg):
     """
+    The function decodes a given encoded message
     :param encoded_msg: given encoded message
     :type encoded_msg: str
     :return: the function returns the decoded message

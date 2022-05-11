@@ -1,5 +1,6 @@
 def intersection(list_1, list_2):
     """
+    The function calculates the intersection of 2 lists
     :param list_1: first list given by the user
     :type list_1:list
     :param list_2: second list given by the user

@@ -1,11 +1,14 @@
 import functools
 
 
-def add_for_id(a, b):
-    return a + b // 10 + b % 10
-
-
 def check_id_valid(id_number):
+    """
+     The function checks if a number is a valid id NUMBER
+    :param id_number: number given by the user
+    :type id_number: int
+    :return: True if id_number is a valid id number and False otherwise
+    :rtype: bool
+    """
     num_list = []
     iter_count = 1
     while id_number > 0:
@@ -19,7 +22,7 @@ def check_id_valid(id_number):
                               num_list)  # the lambda function adds the numbers created after multiplying each digit
     # in the ID nuber by 1 or two according the rules, if after the multiplication a digit becomes a number larger
     # than 9, it adds its 2 digits and uses them for the calculation
-    return id_sum % 10 == 0
+    return id_sum % 10 == 0 and len(num_list) == 9
 
 
 class IDIterator:

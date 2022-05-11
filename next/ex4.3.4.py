@@ -1,6 +1,6 @@
 def get_fibo():
     """
-    creates a generator which contains all numbers in the fibo sequence
+    The function creates a generator which contains all numbers in the fibo sequence
     :yield type: int
     """
     first = 0
@@ -11,13 +11,13 @@ def get_fibo():
         first += second
         second += first
 
+
 def main():
     fibo_gen = get_fibo()
     print(next(fibo_gen))
     print(next(fibo_gen))
     print(next(fibo_gen))
     print(next(fibo_gen))
-
 
 
 if __name__ == "__main__":

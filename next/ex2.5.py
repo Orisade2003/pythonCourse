@@ -1,6 +1,10 @@
 class Animal:
+    """A class used to represent a animal"""
+    zoo_name = "Hayaton"
+
     def __init__(self, name, hunger=0):
         """
+        The function initializes an instance of an animal
         :param name:name of animal
         :type name: string
         :param hunger: hunger attribute of animal, 0 by default
@@ -10,10 +14,10 @@ class Animal:
         """
         self._hunger = hunger
         self._name = name
-        self._zoo_name = "Hayaton"
 
     def get_name(self):
         """
+        The function returns the name of the animal
         :return:name of the animal
         :rtype name: string
         """
@@ -28,7 +32,7 @@ class Animal:
 
     def feed(self):
         """
-        feeds the animal and decreases its feed attribute by 1
+        feeds the animal and decreases its hunger attribute by 1
         """
         self._hunger -= 1
 
@@ -37,13 +41,15 @@ class Animal:
 
 
 class Dog(Animal):
+    """A class used to represent a dog, is a subclass of the class Animal"""
+
     def __init__(self, name, hunger):
         """
+        The function initializes an instance of a Dog
         :param name:name of the dog
         :type name: string
         :param hunger: hunger attribute of dog
-        :type hunger: int
-        """
+        :type hunger: int """
         super().__init__(name, hunger)
 
     def talk(self):
@@ -60,8 +66,10 @@ class Dog(Animal):
 
 
 class Cat(Animal):
+    """A class used to represent a cat, is a subclass of the class Animal"""
     def __init__(self, name, hunger):
         """
+            The function initializes an instance of a Cat
             :param name:name of the cat
             :type name: string
             :param hunger: hunger attribute of the cat
@@ -70,6 +78,9 @@ class Cat(Animal):
         super().__init__(name, hunger)
 
     def talk(self):
+        """
+        The function makes the cat say meow - prints 'meow'
+        """
         print("meow")
 
     def chase_laser(self):
@@ -80,8 +91,11 @@ class Cat(Animal):
 
 
 class Skunk(Animal):
+    """A class used to represent a skunk, is a subclass of the class Animal"""
+
     def __init__(self, name, hunger, stink_count=6):
         """
+            The function initializes an instance of a Skunk
             :param name:name of the skunk
             :type name: string
             :param hunger: hunger attribute of the skunk
@@ -92,6 +106,9 @@ class Skunk(Animal):
         self._stink_count = stink_count
 
     def talk(self):
+        """
+            The function makes the Skunk talk - it says 'tsssss' prints 'tsssss'
+        """
         print("tsssss")
 
     def stink(self):
@@ -102,11 +119,14 @@ class Skunk(Animal):
 
 
 class Unicorn(Animal):
+    """A class used to represent a unicorn, is a subclass of the class Animal"""
+
     def __init__(self, name, hunger):
         """
+            The function initializes an instance of a Unicorn
            :param name:name of the unicorn
            :type name: string
-           :param hunger: hunger attribute of the uniorn
+           :param hunger: hunger attribute of the unicorn
            :type hunger: int
        """
         super().__init__(name, hunger)
@@ -116,14 +136,17 @@ class Unicorn(Animal):
 
     def sing(self):
         """
-                the function prints "I'm not your toy"
+            the function prints "I'm not your toy"
         """
         print("I’m not your toy...	")
 
 
 class Dragon(Animal):
+    """A class used to represent a dragon, is a subclass of the class Animal"""
+
     def __init__(self, name, hunger, color='Green'):
         """
+            The function initializes an instance of a Dragon
            :param name:name of the dragon
            :type name: string
            :param hunger: hunger attribute of the dragon
@@ -134,6 +157,9 @@ class Dragon(Animal):
         self._color = color
 
     def talk(self):
+        """
+        The function makes the dragon talk - it says 'Raaaawr' - the function prints 'Raaaawr'
+        """
         print("Raaaawr")
 
     def breath_fire(self):
@@ -172,8 +198,7 @@ def main():
         if isinstance(animal, Dragon):
             animal.breath_fire()
 
-
-    print(mcfly._zoo_name)
+    print(Animal.zoo_name)
 
 
 if __name__ == '__main__':

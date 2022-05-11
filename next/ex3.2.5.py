@@ -1,25 +1,30 @@
 def read_file(file_name):
     """
+    the function returns a string which's value is __CONTENT_START__ and then if the file exists it adds to the string the content of the file
+    otherwise it adds to the string __NO_SUCH_FILE__, then it adds __CONTENT_END__
     :param file_name: file path given by the user
     :type file_name: string
-    the function prints __CONTENT_START__ and then if the file exists it prints the content of the file
-    otherwise it prints __NO_SUCH_FILE__, then it prints __CONTENT_END__
+    return: the function returns a string which's value is __CONTENT_START__ and then if the file exists it adds to the string the content of the file
+    otherwise it adds to the string __NO_SUCH_FILE__, then it adds __CONTENT_END__
+    :rtype: str
     """
-    print("__CONTENT_START__")
+    output = "__CONTENT_START__"
     try:
-        with open(file_name, "r") as txt_file:
-            print(txt_file.read())
+        txt_file = open(file_name, 'r')
     except OSError:
-        print("__NO_SUCH_FILE__")
+        output += "\n__NO_SUCH_FILE__"
+    else:
+        output += '\n'
+        output += txt_file.read()
+        txt_file.close()
     finally:
-        print("__CONTENT_END__")
-
+        output += "\n__CONTENT_END__"
+    return output
 
 def main():
     file_path = input("Enter File Path")
-    read_file(file_path)
+    print(read_file(file_path))
+
 
 if __name__ == '__main__':
     main()
-
-
