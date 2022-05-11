@@ -246,44 +246,48 @@ def check_input(username, password):
 
     """
     username_check = username.replace("_", "")
-    if not username_check.isalnum():
-        raise UsernameContainsIllegalCharacter(username)
-    if 3 > len(username):
-        raise UsernameTooShort(username)
-    if 17 <= len(username):
-        raise UsernameTooLong(username)
-    lowercase_counter = 0
-    uppercase_counter = 0
-    special_chars_counter = 0
-    digits_counter = 0
-    for char in password:
-        if 'a' <= char <= 'z':
-            lowercase_counter += 1
-        if 'A' <= char <= 'Z':
-            uppercase_counter += 1
-        if char in string.punctuation:
-            special_chars_counter += 1
-        if '0' <= char <= '9':
-            digits_counter += 1
-    if lowercase_counter == 0 or uppercase_counter == 0 or special_chars_counter == 0 or digits_counter == 0:
-        raise PasswordMissingCharacter(password)
-    if 8 > len(password):
-        raise PasswordTooShort(password)
-    if 40 < len(password):
-        raise PasswordTooLong
-    print("OK")
+    try:
+        if not username_check.isalnum():
+            raise UsernameContainsIllegalCharacter(username)
+        if 3 > len(username):
+            raise UsernameTooShort(username)
+        if 17 <= len(username):
+            raise UsernameTooLong(username)
+        lowercase_counter = 0
+        uppercase_counter = 0
+        special_chars_counter = 0
+        digits_counter = 0
+        for char in password:
+            if 'a' <= char <= 'z':
+                lowercase_counter += 1
+            if 'A' <= char <= 'Z':
+                uppercase_counter += 1
+            if char in string.punctuation:
+                special_chars_counter += 1
+            if '0' <= char <= '9':
+                digits_counter += 1
+        if lowercase_counter == 0 or uppercase_counter == 0 or special_chars_counter == 0 or digits_counter == 0:
+            raise PasswordMissingCharacter(password)
+        if 8 > len(password):
+            raise PasswordTooShort(password)
+        if 40 < len(password):
+            raise PasswordTooLong(password)
+    except Exception as e:
+        print(e)
+    else:
+        print('OK')
 
 
 def main():
-    # check_input("1", "2")
-    # check_input("0123456789ABCDEFG", "2")
-    # check_input("A_a1.", "12345678")
-    # check_input("A_1", "2")
-    # check_input("A_1", "ThisIsAQuiteLongPasswordAndHonestlyUnnecessary")
-    # check_input("A_1", "abcdefghijklmnop")
-    # check_input("A_1", "ABCDEFGHIJLKMNOP")
-    # check_input("A_1", "ABCDEFGhijklmnop")
-    # check_input("A_1", "4BCD3F6h1jk1mn0p")
+    check_input("1", "2")
+    check_input("0123456789ABCDEFG", "2")
+    check_input("A_a1.", "12345678")
+    check_input("A_1", "2")
+    check_input("A_1", "ThisIsAQuiteLongPasswordAndHonestlyUnnecessary")
+    check_input("A_1", "abcdefghijklmnop")
+    check_input("A_1", "ABCDEFGHIJLKMNOP")
+    check_input("A_1", "ABCDEFGhijklmnop")
+    check_input("A_1", "4BCD3F6h1jk1mn0p")
     check_input("A_1", "4BCD3F6.1jk1mn0p")
 
 
