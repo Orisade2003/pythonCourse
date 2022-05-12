@@ -1,10 +1,9 @@
-import PIL
-
 from PIL import Image, ImageDraw
 
 
 def connect_lines(first, second):
     """
+    Connects the given dots with lines
     :param first: the first tuple of points to connect, each point is represented by 2 following numbers
     representing x and y coordinates
     :type first:tuple
@@ -14,7 +13,7 @@ def connect_lines(first, second):
     The function uses the PIL package and its modules Image and ImageDraw to
     draw lines and connect all the points in first and in second
     """
-    img = Image.open(r'images/ex6p4.jpg')
+    img = Image.open(r'../images/ex6p4.jpg')
     for pt in range(0, len(first) - 2, 2):
         x = first[pt]
         y = first[pt + 1]

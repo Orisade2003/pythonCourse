@@ -3,6 +3,7 @@ import string
 
 class UsernameContainsIllegalCharacter(Exception):
     """Class used to represent an exception for when the username contains an illegal character"""
+
     def __init__(self, arg):
         """
         The function inits an instance of the UsernameContainsIllegalCharacter exception
@@ -102,29 +103,7 @@ class PasswordMissingCharacter(Exception):
         return: The Function tells the User that there their password is missing one of the required characters
         :rtype:str
         """
-        lowercase_counter = 0
-        uppercase_counter = 0
-        special_chars_counter = 0
-        digits_counter = 0
-        for char in self._arg:
-            if 'a' <= char <= 'z':
-                lowercase_counter += 1
-            if 'A' <= char <= 'Z':
-                uppercase_counter += 1
-            if char in string.punctuation:
-                special_chars_counter += 1
-            if '0' <= char <= '9':
-                digits_counter += 1
-        missing_char = ''
-        if uppercase_counter == 0:
-            missing_char = "Uppercase"
-        elif lowercase_counter == 0:
-            missing_char = "Lowercase"
-        elif digits_counter == 0:
-            missing_char = "Digit"
-        elif special_chars_counter == 0:
-            missing_char = "Special"
-        return "Your Password is missing one of the required characters (%s)" % missing_char
+        return "Your Password is missing a character"
 
     def get_arg(self):
         """
@@ -161,6 +140,26 @@ class PasswordTooShort(Exception):
         :rtype: str
         """
         return self._arg
+
+
+class PasswordsMissingLowercase(PasswordMissingCharacter):
+    def __str__(self):
+        return super().__str__() + '(Lowercase)'
+
+
+class PasswordsMissingUppercase(PasswordMissingCharacter):
+    def __str__(self):
+        return super().__str__() + '(Uppercase)'
+
+
+class PasswordsMissingDigit(PasswordMissingCharacter):
+    def __str__(self):
+        return super().__str__() + '(Digit)'
+
+
+class PasswordsMissingSpecial(PasswordMissingCharacter):
+    def __str__(self):
+        return super().__str__() + '(Special)'
 
 
 class PasswordTooLong(Exception):
@@ -246,49 +245,49 @@ def check_input(username, password):
 
     """
     username_check = username.replace("_", "")
-    try:
-        if not username_check.isalnum():
-            raise UsernameContainsIllegalCharacter(username)
-        if 3 > len(username):
-            raise UsernameTooShort(username)
-        if 17 <= len(username):
-            raise UsernameTooLong(username)
-        lowercase_counter = 0
-        uppercase_counter = 0
-        special_chars_counter = 0
-        digits_counter = 0
-        for char in password:
-            if 'a' <= char <= 'z':
-                lowercase_counter += 1
-            if 'A' <= char <= 'Z':
-                uppercase_counter += 1
-            if char in string.punctuation:
-                special_chars_counter += 1
-            if '0' <= char <= '9':
-                digits_counter += 1
-        if lowercase_counter == 0 or uppercase_counter == 0 or special_chars_counter == 0 or digits_counter == 0:
-            raise PasswordMissingCharacter(password)
-        if 8 > len(password):
-            raise PasswordTooShort(password)
-        if 40 < len(password):
-            raise PasswordTooLong(password)
-    except Exception as e:
-        print(e)
-    else:
-        print('OK')
+    if not username_check.isalnum():
+        raise UsernameContainsIllegalCharacter(username)
+    if 3 > len(username):
+        raise UsernameTooShort(username)
+    if 17 <= len(username):
+        raise UsernameTooLong(username)
+    if not any(ch.isupper() for ch in password):
+        raise PasswordsMissingUppercase(password)
+    if not any(ch.islower() for ch in password):
+        raise PasswordsMissingLowercase(password)
+    if not any(ch.isdigit() for ch in password):
+        raise PasswordsMissingDigit(password)
+    if not any(ch in string.punctuation for ch in password):
+        raise PasswordsMissingSpecial(password)
+    if 8 > len(password):
+        raise PasswordTooShort(password)
+    if 40 < len(password):
+        raise PasswordTooLong(password)
+    print('OK')
 
 
 def main():
-    check_input("1", "2")
-    check_input("0123456789ABCDEFG", "2")
-    check_input("A_a1.", "12345678")
-    check_input("A_1", "2")
-    check_input("A_1", "ThisIsAQuiteLongPasswordAndHonestlyUnnecessary")
-    check_input("A_1", "abcdefghijklmnop")
-    check_input("A_1", "ABCDEFGHIJLKMNOP")
-    check_input("A_1", "ABCDEFGhijklmnop")
-    check_input("A_1", "4BCD3F6h1jk1mn0p")
-    check_input("A_1", "4BCD3F6.1jk1mn0p")
+    # check_input("1", "2")
+    # check_input("0123456789ABCDEFG", "2")
+    # check_input("A_a1.", "12345678")
+    # check_input("A_1", "2")
+    # check_input("A_1", "ThisIsAQuiteLongPasswordAndHonestlyUnnecessary")
+    # check_input("A_1", "abcdefghijklmnop")
+    # check_input("A_1", "ABCDEFGHIJLKMNOP")
+    # check_input("A_1", "ABCDEFGhijklmnop")
+    # check_input("A_1", "4BCD3F6h1jk1mn0p")
+    # check_input("A_1", "4BCD3F6.1jk1mn0p")
+
+    invalid_credentials = True
+    while invalid_credentials:
+        username = input("Enter Username: ")
+        password = input("Enter Password: ")
+        try:
+            check_input(username, password)
+        except Exception as e:
+            print(e)
+        else:
+            invalid_credentials = False
 
 
 if __name__ == "__main__":

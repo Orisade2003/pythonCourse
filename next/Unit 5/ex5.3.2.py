@@ -9,6 +9,7 @@ class MusicNotes:
 
     def __iter__(self):
         """
+        The function returns the instance of the MusicNotes
         :return: this current instance of MusicNotes
         :rtype: MusicNotes
         """
@@ -16,6 +17,7 @@ class MusicNotes:
 
     def __next__(self):
         """
+        The function returns the next frequency of a note
         :return: the function returns the next frequency of a note
         :rtype: int
         """

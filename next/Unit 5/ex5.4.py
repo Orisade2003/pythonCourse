@@ -32,6 +32,7 @@ class IDIterator:
 
     def __init__(self, id):
         """
+        The function initializes an IDIterator
         :param id: Id number given to the function
         :type id: int
         """

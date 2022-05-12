@@ -13,6 +13,7 @@ def decode_msg(encoded_msg):
     decoded = base64.b64decode(encoded_msg)
     return codecs.decode(decoded)
 
+
 def main():
     encoded_msg = """CgkJICAgICAgICAgICAgICAgIAogICAgICAgICAg
     ICAgICAuLS0tW1tfX11dLS0tLS4KICAgICAgICAgICAgICA7LS0tLS0tL

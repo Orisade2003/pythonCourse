@@ -3,9 +3,9 @@ import pyttsx3
 
 def text_to_speech(text):
     """
-    :param text: tex given to the function
-    :type text:str
     The function uses the pyttsx3 package to read out loud the content of text
+    :param text: text given to the function
+    :type text:str
     """
     speech = pyttsx3.init()
     speech.say(text)

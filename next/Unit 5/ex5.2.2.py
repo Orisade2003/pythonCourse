@@ -11,8 +11,10 @@ def iter_practice():
         except StopIteration as e:
             print('Done')
 
+
 def main():
     iter_practice()
+
 
 if __name__ == "__main__":
     main()

@@ -19,11 +19,12 @@ def create_main_window():
 
 def show_picture(window):
     """
+    The function displays a picture of my favourite NBA team's logo
     :param window: A Tkinter window
     :type window: Tkinter window
     The function shows an image on the given window
     """
-    img = tk.PhotoImage(file=r'C:\Users\ORI\PycharmProjects\sigitCourse\next\images\celtics_logo.png')
+    img = tk.PhotoImage(file=r'../images/celtics_logo.png')
     label = tk.Label(window, image=img)
     label.pack()
     window.mainloop()

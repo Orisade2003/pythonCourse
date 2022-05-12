@@ -65,7 +65,7 @@ def names_with_len(file_path, wanted_len):
 
 
 def main():
-    print(longest_name(r"C:\Users\ORI\PycharmProjects\sigitCourse\next\names"))
+    print(longest_name(r"names"))
     # print(sum_lens(r"C:\Users\ORI\PycharmProjects\sigitCourse\next\names"))
 
 

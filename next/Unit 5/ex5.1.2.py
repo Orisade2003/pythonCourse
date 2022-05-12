@@ -1,5 +1,6 @@
 import winsound
 
+
 def create_music():
     """
     the function plays the rhythm of 'Yonatan HaKatan' "
@@ -24,6 +25,7 @@ def create_music():
 
 def main():
     create_music()
+
 
 if __name__ == "__main__":
     create_music()
