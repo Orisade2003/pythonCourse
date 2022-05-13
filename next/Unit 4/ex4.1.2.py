@@ -8,11 +8,10 @@ def translate(sentence):
     """
     words = {'esta': 'is', 'la': 'the', 'en': 'in', 'gato': 'cat', 'casa': 'house', 'el': 'the'}
     word_list = sentence.split(" ")
-    translated = (words.get(i) for i in word_list)
+    translated = (words.get(i) for i in word_list if i in words.keys())
     translation = ''
-    for i in range(len(word_list)):
-        current = next(translated)
-        translation = translation + " " + current
+    for i in translated:
+        translation = translation + " " + i
     return translation
 
 

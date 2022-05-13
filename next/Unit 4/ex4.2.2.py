@@ -7,8 +7,9 @@ def parse_ranges(ranges_string):
     :rtype: generator
     """
     all_ranges = ranges_string.split(",")
-    ranges = (i for r in all_ranges for i in range(int(r[0:r.find('-')]), int(r[r.find('-') + 1:]) + 1))
-    return ranges
+    ranges = (i.split('-') for i in ranges_string.split(','))
+    result = (i for start, end in ranges for i in range(int(start),int(end)+1))
+    return result
 
 
 def main():

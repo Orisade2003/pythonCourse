@@ -5,7 +5,8 @@ def gen_secs():
     :rtype: generator
     """
     sec_gen = (i for i in range(60))
-    return sec_gen
+    for i in range(60):
+        yield i
 
 
 def gen_minutes():
@@ -15,7 +16,8 @@ def gen_minutes():
         :rtype: generator
         """
     min_gen = (i for i in range(60))
-    return min_gen
+    for i in range(60):
+        yield i
 
 
 def gen_hours():
@@ -25,7 +27,8 @@ def gen_hours():
         :rtype: generator
         """
     hour_gen = (i for i in range(0, 24))
-    return hour_gen
+    for i in range(0, 24):
+        yield i
 
 
 def gen_time():
@@ -68,8 +71,8 @@ def gen_months():
     :return: a generator of all the possible months numbers (1-13, not inclusive)
     :rtype: int
     """
-    months_gen = (month for month in range(1, 13))
-    return months_gen
+    for month in range(1, 13):
+        yield month
 
 
 def gen_days(month, leap_year=True):
@@ -84,17 +87,23 @@ def gen_days(month, leap_year=True):
     """
     if month <= 7:
         if month % 2 == 1:
-            return (i for i in range(1, 32))
+            for i in range(1, 32):
+                yield i
         if month != 2:
-            return (i for i in range(1, 31))
+            for i in range(1, 31):
+                yield i
         if month == 2 and leap_year:
-            return (i for i in range(1, 30))
-        return (i for i in range(1, 29))
+            for i in range(1, 30):
+                yield i
+        for i in range(1, 29):
+            yield i
     else:
         if month % 2 == 1:
-            return (i for i in range(1, 31))
+            for i in range(1, 31):
+                yield i
         else:
-            return (i for i in range(1, 32))
+            for i in range(1, 32):
+                yield i
 
 
 def gen_date():
