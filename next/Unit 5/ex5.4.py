@@ -1,7 +1,7 @@
 import functools
 
 
-def check_id_valid(id_number):
+def check_id_valid2(id_number):
     """
      The function checks if a number is a valid id NUMBER
     :param id_number: number given by the user
@@ -23,6 +23,21 @@ def check_id_valid(id_number):
     # in the ID nuber by 1 or two according the rules, if after the multiplication a digit becomes a number larger
     # than 9, it adds its 2 digits and uses them for the calculation
     return id_sum % 10 == 0 and len(num_list) == 9
+
+
+def check_id_valid(id_number):
+    """
+         The function checks if a number is a valid id NUMBER
+        :param id_number: number given by the user
+        :type id_number: int
+        :return: True if id_number is a valid id number and False otherwise
+        :rtype: bool
+        """
+    id_num = str(id_number)
+    num_list = [int(id_num[i]) if i % 2 == 0 else int(id_num[i]) * 2 for i in range(len(id_num))]
+    id_sum = functools.reduce(lambda a, b: a + b // 10 + b % 10,
+                              num_list)
+    return id_sum % 10 == 0 and len(num_list) == 9 and id_num.isdigit()
 
 
 class IDIterator:
