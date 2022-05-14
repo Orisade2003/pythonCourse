@@ -19,9 +19,9 @@ def find_100_sum():
 
 
 def main():
-    find_100_sum()
+    possible_combinations = find_100_sum()
+    print(possible_combinations)
 
 
 if __name__ == "__main__":
-    possible_combinations = find_100_sum()
-    print(possible_combinations)
+    main()

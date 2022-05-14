@@ -5,7 +5,7 @@ def iter_practice():
     numbers = iter(list(range(1, 101)))
     for i in numbers:
         try:
-            i = next(numbers)
+            next(numbers)
             i = next(numbers)
             print(i)
         except StopIteration as e:

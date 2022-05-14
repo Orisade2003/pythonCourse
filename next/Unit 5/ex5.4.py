@@ -30,13 +30,13 @@ class IDIterator:
     The class represents an IDIterator, which creates valid ID's starting from a given one
     """
 
-    def __init__(self, id):
+    def __init__(self, id_num):
         """
         The function initializes an IDIterator
-        :param id: Id number given to the function
-        :type id: int
+        :param id_num: ID number given to the function
+        :type id_num: int
         """
-        self._id = id
+        self._id = id_num
 
     def __iter__(self):
         """
