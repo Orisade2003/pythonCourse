@@ -23,7 +23,7 @@ class UsernameContainsIllegalCharacter(Exception):
                 illegal_character = ch
             counter += 1
         params = (illegal_character, counter - 1)
-        return 'Your Username contains an illegal character "%s" at %s ' % params
+        return 'Your Username contains an illegal character "%s" at index %s ' % params
 
     def get_arg(self):
         """

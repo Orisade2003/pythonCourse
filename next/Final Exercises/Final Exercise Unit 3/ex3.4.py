@@ -23,7 +23,7 @@ class UsernameContainsIllegalCharacter(Exception):
                 illegal_character = ch
             counter += 1
         params = (illegal_character, counter - 1)
-        return 'Your Username contains an illegal character "%s" at %s ' % params
+        return 'Your Username contains an illegal character "%s" at index %s ' % params
 
     def get_arg(self):
         """
@@ -204,7 +204,8 @@ def check_input(username, password):
      :raises UsernameTooShort if the username is shorter than 3 characters
      :raises PasswordTooLong if the passwords is longer than 40 characters
      :raises PasswordTooShort if the passwords is shorter than 8 characters
-     :raises PasswordMissingCharacter if the passwords doesn't contain one of the following: a number, an uppercase letter, a lowercase letter or a special character
+     :raises PasswordMissingCharacter if the passwords doesn't contain one of the following: a number,
+     an uppercase letter, a lowercase letter or a special character
 
     """
     username_check = username.replace("_", "")

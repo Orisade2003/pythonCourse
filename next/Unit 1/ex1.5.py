@@ -66,7 +66,8 @@ def main():
     sum_lens(r"names")
     shortest_names(r"names")
     write_name_len(r"names")
-    names_with_len(r"names", 4)
+    length = int(input("Enter the wanted length: "))
+    names_with_len(r"names", length)
 
 
 if __name__ == '__main__':
