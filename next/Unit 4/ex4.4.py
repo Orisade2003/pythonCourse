@@ -65,7 +65,7 @@ def gen_months():
     """
     The function returns a generator of all the possible months numbers (1-13, not inclusive)
     :return: a generator of all the possible months numbers (1-13, not inclusive)
-    :rtype: int
+    :rtype: generator
     """
     for month in range(1, 13):
         yield month

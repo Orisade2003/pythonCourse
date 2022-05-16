@@ -14,21 +14,13 @@ def connect_lines(first, second):
     draw lines and connect all the points in first and in second
     """
     img = Image.open(r'ex6p4.jpg')
-    for pt in range(0, len(first) - 2, 2):
-        x = first[pt]
-        y = first[pt + 1]
-        x2 = first[pt + 2]
-        y2 = first[pt + 3]
-        draw = ImageDraw.Draw(img)
-        draw.line((x, y, x2, y2), fill=128, width=3)
+    list_of_tups = [(first[i], first[i + 1]) for i in range(0, len(first) - 2, 2)]
+    draw = ImageDraw.Draw(img)
+    draw.line(list_of_tups, fill=128, width=3)
 
-    for pt in range(0, len(second) - 2, 2):
-        x = second[pt]
-        y = second[pt + 1]
-        x2 = second[pt + 2]
-        y2 = second[pt + 3]
-        draw = ImageDraw.Draw(img)
-        draw.line((x, y, x2, y2), fill=128, width=3)
+    list_of_tups = [(second[i], second[i + 1]) for i in range(0, len(second) - 2, 2)]
+    draw = ImageDraw.Draw(img)
+    draw.line(list_of_tups, fill=128, width=3)
     img.show()
     img.save('result.png')
 

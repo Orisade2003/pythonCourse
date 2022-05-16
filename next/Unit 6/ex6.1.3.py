@@ -7,7 +7,7 @@ def create_main_window():
     show_picture function
     """
     master_window = tk.Tk()
-    master_window.geometry("200x200")
+    master_window.geometry("200x100")
     label = tk.Label(master_window, text="What's my favorite NBA team?")
     label.pack()
     btn = tk.Button(master_window, text="Click to find out")
@@ -27,6 +27,7 @@ def show_picture(window):
     img = tk.PhotoImage(file=r'../images/celtics_logo.png')
     label = tk.Label(window, image=img)
     label.pack()
+    window.geometry("300x300")
     window.mainloop()
 
 
