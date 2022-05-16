@@ -1,5 +1,4 @@
 import base64
-import codecs
 
 
 def decode_msg(encoded_msg):
@@ -10,8 +9,9 @@ def decode_msg(encoded_msg):
     :return: the function returns the decoded message
     :rtype: str
     """
-    decoded = base64.b64decode(encoded_msg)
-    return codecs.decode(decoded)
+    encoded = encoded_msg.encode()
+    decoded_64 = base64.b64decode(encoded)
+    return decoded_64.decode()
 
 
 def main():
